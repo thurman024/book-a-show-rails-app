@@ -1,0 +1,12 @@
+<%= form_for @band do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.label :rate %>
+  <%= f.text_field :rate %>
+
+  <%= f.submit "Create Band" %>
+<% end %>

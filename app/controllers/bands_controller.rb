@@ -19,4 +19,8 @@ class BandsController < ApplicationController
   def show
 
   end
+
+  private
+  def band_params
+    params.require(:band).permit(:name, :description, :rate)
 end
