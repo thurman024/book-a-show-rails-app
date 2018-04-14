@@ -44,6 +44,10 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
   private
   def booking_params
     params.require(:booking).permit(:band_id, :venue_id, :showtime)
