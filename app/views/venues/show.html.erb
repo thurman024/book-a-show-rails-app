@@ -1,1 +1,9 @@
 <h1> <%= @venue.name %> </h1>
+
+<p><%= @venue.description %></p>
+
+<h3>Upcoming bookings:</h3>
+
+  <% @venue.bookings.each do |booking| %>
+    <p><strong><%= booking.band.name %></strong> - <%= booking.showtime.strftime("%B %-d, %Y at %-I:%M%p") %></p><br>
+  <% end %>
