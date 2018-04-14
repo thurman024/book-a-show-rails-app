@@ -17,10 +17,11 @@ class BandsController < ApplicationController
   end
 
   def show
-
+    @band = Band.find(params[:id])
   end
 
   private
   def band_params
     params.require(:band).permit(:name, :description, :rate)
+  end
 end
