@@ -1,1 +1,9 @@
 <h1><%= @band.name %></h1>
+
+<p><%= @band.description %></p>
+
+<h3>Upcoming shows:</h3>
+
+  <% @band.shows.each do |show| %>
+    <p><strong><%= show.venue.name %></strong> - <%= show.showtime.strftime("%B %-d, %Y at %-I:%M%p") %></p><br>
+  <% end %>
