@@ -13,5 +13,24 @@ class BookingsController < ApplicationController
     end
   end
 
+  def show
+    if params[:venue_id]
+      @venue = Venue.find_by(id: params[:venue_id])
+      @booking = @venue.bookings.find_by(id: params[:id])
+      if @booking.nil?
+        redirect_to venue_bookings_path, alert: "Booking not found"
+      end
+    elsif params[:band_id]
+      @band = Band.find_by(id: params[:band_id])
+      @booking = @band.shows.find_by(id: params[:id])
+      if @booking.nil?
+        redirect_to band_bookings_path, alert: "Booking not found"
+      end
+    else
+      @booking = Booking.find(params[:id])
+    end
+  end
+
+  
 
 end
