@@ -1,0 +1,5 @@
+<h1>All Shows</h1>
+
+<% @bookings.each do |show| %>
+  <p><%= show.band.name %> at <%= show.venue.name %> </p><br>
+<% end %>
