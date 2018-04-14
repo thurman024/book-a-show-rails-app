@@ -31,6 +31,8 @@ class BookingsController < ApplicationController
     end
   end
 
-  
+  def new
+    @booking = Booking.new
+  end
 
 end

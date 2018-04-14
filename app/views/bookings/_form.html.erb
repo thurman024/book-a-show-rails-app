@@ -1,0 +1,13 @@
+<%= form_for @booking do |f| %>
+  <%= f.label :band %>
+  <%= f.collection_select :band_id, Band.all, :id, :name %><br>
+
+  <%= f.label :venue %>
+  <%= f.collection_select :venue_id, Venue.all, :id, :name %><br>
+
+  <%= f.label :showtime %>
+  <%= f.date_select :showtime %><br>
+  <%= f.time_select :showtime %><br>
+
+  <%= f.submit %>
+<% end %>
