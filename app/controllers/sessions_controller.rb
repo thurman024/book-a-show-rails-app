@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       @user = User.find_or_create_by(username: request.env["omniauth.auth"]["info"]["first_name"])
       redirect_to bookings_path
     else
-      @user = User.find_by(name: params[:user][:username])
+      @user = User.find_by(username: params[:user][:username])
       if @user && @user.authenticate(params[:user][:password])
        session[:user_id] = @user.id
        redirect_to bookings_path
