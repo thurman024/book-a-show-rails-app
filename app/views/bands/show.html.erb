@@ -2,8 +2,6 @@
 
 <p><%= @band.description %></p>
 
-<h3>Upcoming shows:</h3>
+<h3><%= link_to "See all upcoming shows", band_bookings_path(@band) %></h3>
 
-  <% @band.shows.each do |show| %>
-    <p><strong><%= show.venue.name %></strong> - <%= show.showtime.strftime("%B %-d, %Y at %-I:%M%p") %></p><br>
-  <% end %>
+<h4><%= link_to "Book this band", new_band_booking_path(@band) %></h4>
