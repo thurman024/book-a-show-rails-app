@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   get "logout" => "sessions#destroy", as: "logout"
 
   root "static#welcome"
+
+  get '/auth/google_oauth2/callback', to: 'sessions#create'
 end

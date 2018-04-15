@@ -1,8 +1,8 @@
 <%= form_for @user, :url => url_for(:controller => 'sessions', :action => 'create') do |f| %>
 
   <div >
-    <%= f.label :name %><br>
-    <%= f.text_field :name %><br>
+    <%= f.label :username %><br>
+    <%= f.text_field :username %><br>
 
   </div>
 
@@ -15,3 +15,6 @@
     <%= f.submit "Sign In" %>
   </div>
 <% end %>
+
+<p>Or, sign in with Google</p>
+<%= link_to 'Log In with Google', '/auth/google_oauth2' %>
