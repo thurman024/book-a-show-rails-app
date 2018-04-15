@@ -27,6 +27,7 @@ class VenuesController < ApplicationController
 
   def show
     @venue = Venue.find(params[:id])
+    @next_show = @venue.next_show.first
   end
 
   private

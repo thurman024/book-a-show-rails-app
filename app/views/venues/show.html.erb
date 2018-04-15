@@ -3,6 +3,7 @@
 <p><%= @venue.description %></p>
 
 <h3>Next Show:</h3>
+<p> <%= @next_show.showtime.strftime("%B %-d, %Y at %-I:%M%p") %> - <%=@next_show.band.name %></p>
 
 <%= link_to "See all upcoming shows", venue_bookings_path(@venue) %>
 
