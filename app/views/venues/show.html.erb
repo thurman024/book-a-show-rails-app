@@ -10,4 +10,4 @@
     <p><strong><% booking.band.name %></strong> - <% booking.showtime.strftime("%B %-d, %Y at %-I:%M%p") %></p><br>
   <% end %>
 
-<h4><%= link_to "Book a band at this venue", new_venue_booking_path %></h4>
+<h4><%= link_to "Book a band at this venue", new_venue_booking_path(@venue) %></h4>

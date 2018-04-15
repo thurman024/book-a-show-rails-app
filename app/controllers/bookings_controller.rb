@@ -32,7 +32,7 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = Booking.new
+    @booking = Booking.new(band_id: params[:band_id], venue_id: params[:venue_id])
   end
 
   def create
