@@ -18,7 +18,9 @@ class BandsController < ApplicationController
 
   def show
     @band = Band.find(params[:id])
-    @next_show = @band.next_show.first
+
+    @next_show = @band.shows.next_show.first
+    # raise @next_show.inspect
   end
 
   private
