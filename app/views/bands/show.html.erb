@@ -5,8 +5,11 @@
 <p><strong>Rate: </strong>$<%= @band.rate %> </p> <br>
 
 <h3>Next Show:</h3>
-<p> <%= format_showtime(@next_show.showtime) %> - <%=@next_show.venue.name %></p>
+<% if @next_show.nil? %>
+  <p>There are currently no shows scheduled for this band.</p>
+<% else %>
+  <p> <%= format_showtime(@next_show.showtime) %> - <%=@next_show.venue.name %></p>
 
-<h3><%= link_to "See all upcoming shows", band_bookings_path(@band) %></h3>
-
+  <h3><%= link_to "See all upcoming shows", band_bookings_path(@band) %></h3>
+<% end %>
 <h4><%= link_to "Book this band", new_band_booking_path(@band) %></h4>
