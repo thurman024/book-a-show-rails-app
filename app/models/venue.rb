@@ -4,13 +4,4 @@ class Venue < ApplicationRecord
 
   validates :name, presence: true
 
-  # def show_count
-  #   @count = self.shows.count
-  #   if @count == 0
-  #     "No scheduled shows"
-  #   else
-  #     pluralize(@count, 'show') + " scheduled"
-  #   end
-  # end
-  
 end
