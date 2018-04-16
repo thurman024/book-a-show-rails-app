@@ -1,7 +1,7 @@
 module ApplicationHelper
 
-  def format_showtime
-    strftime("%B %-d, %Y at %-I:%M%p")
+  def format_showtime(t)
+    t.strftime("%B %-d, %Y at %-I:%M%p")
   end
 
   def show_count_message(shows)
