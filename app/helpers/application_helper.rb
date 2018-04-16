@@ -13,14 +13,4 @@ module ApplicationHelper
     end
   end
 
-  # def next_show(all_shows)
-  #   if all_shows.count == 0
-  #     "There are no scheduled shows for this band"
-  #   else
-  #     current_time = Time.now
-  #     shows = all_shows.order("showtime")
-  #     shows.where("showtime > ?", current_time).limit(1)
-  #   end
-  # end
-
 end
