@@ -3,3 +3,7 @@
 <h2>Venue: <%= @booking.venue.name %></h2>
 
 <h3>Showtime: <%= @booking.showtime.strftime("%B %-d, %Y at %-I:%M%p") %> </h3>
+
+<p><%= link_to "Edit", edit_booking_path(@booking) %></p>
+<br>
+<p><%= link_to "Cancel Show", booking_path(@booking), method: 'delete' %></p>
