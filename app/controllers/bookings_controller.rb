@@ -1,9 +1,10 @@
 class BookingsController < ApplicationController
-  before_action :require_login
+  # before_action :require_login
   before_action :venue_owner?
   skip_before_action :venue_owner?, only: [:index, :show]
 
   def index
+    # raise session.inspect
     if params[:venue_id]
       @venue = Venue.find_by(id: params[:venue_id])
       redirect_to venues_path, alert: "Venue not found" if @venue.nil?
