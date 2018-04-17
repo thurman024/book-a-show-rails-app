@@ -3,5 +3,7 @@
   <%= link_to "All Bands", bands_path %>
   <%= link_to "All Venues", venues_path %>
   <%= link_to "Book a Band", new_booking_path %>
-  <%= link_to "Log Out", logout_path %>
+  <% if session[:user_id] %>
+    <%= link_to "Log Out", logout_path %>
+  <% end %>
 </nav>
