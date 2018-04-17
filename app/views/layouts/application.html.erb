@@ -14,7 +14,7 @@
     </header>
 
     <div id="flash-msg">
-      <% if flash.include?(:message) %>
+      <% if flash[:message] %>
         <p style = "color:red;"> <%= flash[:message] %></p>
       <% end %>
     </div>

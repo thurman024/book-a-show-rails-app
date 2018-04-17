@@ -4,6 +4,7 @@ class VenuesController < ApplicationController
   skip_before_action :venue_owner?, only: [:index, :show]
 
   def index
+    # raise flash[:message].inspect
     @venues = Venue.all
   end
 
