@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   def venue_owner?
     if !current_user.venue_owner
       flash[:message] = "You must be registered as a venue owner to perform this action"
-      redirect_to root_path
+      redirect_to venues_path
     end
   end
 end
