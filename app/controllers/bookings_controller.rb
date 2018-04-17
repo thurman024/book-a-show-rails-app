@@ -50,7 +50,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    # raise booking_params.inspect
     @booking = Booking.new(booking_params)
     if @booking.save
       redirect_to booking_path(@booking)
@@ -61,6 +60,13 @@ class BookingsController < ApplicationController
 
   def edit
     @booking = Booking.find(params[:id])
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.delete
+    flash[:message] = "Booking successfully deleted."
+    redirect_to bookings_path
   end
 
   private

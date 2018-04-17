@@ -2,7 +2,7 @@
 
 <ul>
   <% @bands.each do |band| %>
-    <li> <%= link_to band.name, band_path(band) %> </li>
+    <li> <%= link_to band.name, band_path(band) %> - <%= show_count_message(band.shows) %></li><br>
   <% end %>
 </ul>
 

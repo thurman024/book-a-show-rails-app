@@ -2,7 +2,7 @@
 
 <ul>
   <% @venues.each do |venue| %>
-    <li> <%= link_to venue.name, venue_path(venue) %> </li>
+    <li> <%= link_to venue.name, venue_path(venue) %> - <%= show_count_message(venue.bookings) %></li><br>
   <% end %>
 </ul>
 
