@@ -4,15 +4,22 @@ class BookingsController < ApplicationController
   skip_before_action :venue_owner?, only: [:index, :show]
 
   def index
-    # raise session.inspect
     if params[:venue_id]
       @venue = Venue.find_by(id: params[:venue_id])
-      redirect_to venues_path, alert: "Venue not found" if @venue.nil?
-      @bookings = @venue.bookings
+      if @venue.nil?
+        flash[:message] = "Venue not found"
+        redirect_to venues_path
+      else
+        @bookings = @venue.bookings
+      end
     elsif params[:band_id]
       @band = Band.find_by(id: params[:band_id])
-      redirect_to bands_path, alert: "Band not found" if @band.nil?
-      @bookings = @band.shows
+      if @band.nil?
+        flash[:message] = "Band not found"
+        redirect_to bands_path
+      else
+        @bookings = @band.shows
+      end
     else
       @bookings = Booking.all
     end
@@ -23,13 +30,15 @@ class BookingsController < ApplicationController
       @venue = Venue.find_by(id: params[:venue_id])
       @booking = @venue.bookings.find_by(id: params[:id])
       if @booking.nil?
-        redirect_to venue_bookings_path, alert: "Booking not found"
+        flash[:message] = "Booking not found"
+        redirect_to venue_bookings_path
       end
     elsif params[:band_id]
       @band = Band.find_by(id: params[:band_id])
       @booking = @band.shows.find_by(id: params[:id])
       if @booking.nil?
-        redirect_to band_bookings_path, alert: "Booking not found"
+        flash[:message]  = "Booking not found"
+        redirect_to band_bookings_path
       end
     else
       @booking = Booking.find(params[:id])
@@ -41,6 +50,7 @@ class BookingsController < ApplicationController
   end
 
   def create
+    # raise booking_params.inspect
     @booking = Booking.new(booking_params)
     if @booking.save
       redirect_to booking_path(@booking)
