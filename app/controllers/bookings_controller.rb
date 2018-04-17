@@ -1,4 +1,8 @@
 class BookingsController < ApplicationController
+  before_action :require_login
+  before_action :venue_owner?
+  skip_before_action :venue_owner?, only: [:index, :show]
+
   def index
     if params[:venue_id]
       @venue = Venue.find_by(id: params[:venue_id])
