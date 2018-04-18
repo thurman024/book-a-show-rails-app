@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+book-a-show is a rails app meant to serve as a platform for venue owners to book bands to play shows.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#Installing
+- Fork and clone this repository
+- Run `bundle install`
+- Run `rake db:migrate`
+- If desired, add seed data with `rake db:seed`
