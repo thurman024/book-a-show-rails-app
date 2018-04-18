@@ -1,6 +1,6 @@
 class BandsController < ApplicationController
   before_action :require_login
-  
+
   def index
     @bands = Band.all
   end
@@ -27,4 +27,5 @@ class BandsController < ApplicationController
   def band_params
     params.require(:band).permit(:name, :description, :rate)
   end
+
 end

@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   before_action :require_login
   before_action :venue_owner?
   skip_before_action :venue_owner?, only: [:index, :show]
+  before_action :set_booking, only: [:edit, :update, :destroy]
 
   def index
     if params[:venue_id]
@@ -41,7 +42,7 @@ class BookingsController < ApplicationController
         redirect_to band_bookings_path
       end
     else
-      @booking = Booking.find(params[:id])
+      set_booking
     end
   end
 
@@ -59,17 +60,15 @@ class BookingsController < ApplicationController
   end
 
   def edit
-    @booking = Booking.find(params[:id])
+
   end
 
   def update
-    @booking = Booking.find(params[:id])
     @booking.update(booking_params)
     redirect_to booking_path(@booking)
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
     @booking.delete
     flash[:message] = "Booking successfully deleted."
     redirect_to bookings_path
@@ -78,6 +77,10 @@ class BookingsController < ApplicationController
   private
   def booking_params
     params.require(:booking).permit(:band_id, :venue_id, :showtime)
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 
 end
