@@ -2,5 +2,5 @@
 
 <% @bookings.each do |show| %>
   <p><%= link_to show.band.name, band_path(show.band) %> at <%= link_to show.venue.name, venue_path(show.venue) %> </p>
-  <p> <%= format_showtime(show.showtime) %></p><br><br>
+  <p> <%= link_to format_showtime(show.showtime), booking_path(show) %></p><br><br>
 <% end %>
