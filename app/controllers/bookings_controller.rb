@@ -51,11 +51,17 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    if @booking.save
-      redirect_to booking_path(@booking)
+    # raise params.inspect
+    if current_user.venue.id == params["booking"][:venue_id].to_i
+      @booking = Booking.new(booking_params)
+      if @booking.save
+        redirect_to booking_path(@booking)
+      else
+        render :new
+      end
     else
-      render :new
+      flash[:message] = "You can only create bookings at your venue"
+      redirect_to new_booking_path
     end
   end
 
