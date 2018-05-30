@@ -9,12 +9,14 @@ Rails.application.routes.draw do
   end
 
   resources :bookings
-
+  get "bookings/:id/booking_data", to: "bookings#booking_data"
+  
   resources :users, only: [:new, :create]
 
   get "login" => "sessions#new", as: "login"
   post "login" => "sessions#create"
   get "logout" => "sessions#destroy", as: "logout"
+
 
   root "static#welcome"
 

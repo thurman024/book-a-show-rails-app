@@ -65,6 +65,13 @@ class BookingsController < ApplicationController
     end
   end
 
+  def booking_data
+    booking = Booking.find(params[:id])
+    render json: booking.to_json(only: [:showtime],
+                                  include: [venue: {only: [:description]}])
+                                            #[band: {only: [:description]}])
+  end
+
   def edit
 
   end
