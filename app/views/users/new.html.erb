@@ -7,8 +7,8 @@
   <%= f.label :password %>
   <%= f.password_field :password %><br>
 
-  <%= f.label :venue_owner, "Check this box if you are a venue owner" %>
-  <%= f.check_box :venue_owner %><br>
+  <%= f.label :venue_id, "Select a venue if you are an owner" %>
+  <%= f.collection_select :venue_id, Venue.all, :id, :name, include_blank: true %><br>
 
   <%= f.submit "Create User" %>
 
