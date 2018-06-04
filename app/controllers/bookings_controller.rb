@@ -24,6 +24,9 @@ class BookingsController < ApplicationController
     else
       @bookings = Booking.all
     end
+    respond_to do |format|
+      format.json {render json: @bookings}
+      format.html {render :index}
   end
 
   def show
@@ -68,8 +71,7 @@ class BookingsController < ApplicationController
   def booking_data
     booking = Booking.find(params[:id])
     render json: booking.to_json(only: [:showtime],
-                                  include: [venue: {only: [:description]}])
-                                            #[band: {only: [:description]}])
+                                  include: [:venue, :band])
   end
 
   def edit
