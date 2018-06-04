@@ -1,10 +1,25 @@
 <h1>Bands Index</h1>
+<div class="band-list">
+  <ul>
+    <% @bands.each do |band| %>
+      <li> <%= link_to band.name, band_path(band) %> - <%= show_count_message(band.shows) %></li><br>
+      <a href="/bands/<%=band.id%>/bookings.json" class="js-all">See all shows</a>
+    <% end %>
+  </ul>
+</div>
+<div class="shows-list">
 
-<ul>
-  <% @bands.each do |band| %>
-    <li> <%= link_to band.name, band_path(band) %> - <%= show_count_message(band.shows) %></li><br>
-  <% end %>
-</ul>
-
+</div>
 <br>
 <p><%= link_to "Add a Band", new_band_path %></p>
+
+<script type="text/javascript">
+  $(function() {
+    $(".js-all").on('click', function(event) {
+      alert("you clicked the link")
+      event.preventDefault()
+
+    })
+  })
+
+</script>

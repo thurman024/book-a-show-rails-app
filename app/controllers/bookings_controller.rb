@@ -27,6 +27,7 @@ class BookingsController < ApplicationController
     respond_to do |format|
       format.json {render json: @bookings}
       format.html {render :index}
+    end
   end
 
   def show
