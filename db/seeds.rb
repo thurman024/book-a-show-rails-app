@@ -21,10 +21,13 @@ cahaba = Venue.create({name: 'Cahaba Brewing Company', description: 'Indoor ware
 tinroof = Venue.create({name: 'Tin Roof', description: 'Bar with country appeal'})
 
 Booking.create([
-  {showtime: DateTime.new(2018, 05, 01, 20, 00, 0), band: weeks, venue: avondale},
-  {showtime: DateTime.new(2018, 05, 11, 20, 00, 0), band: killers, venue: redrocks},
-  {showtime: DateTime.new(2018, 05, 25, 22, 00, 0), band: avett, venue: redrocks},
-  {showtime: DateTime.new(2018, 05, 29, 20, 00, 0), band: weeks, venue: redrocks},
-  {showtime: DateTime.new(2018, 05, 04, 21, 00, 0), band: trotline, venue: tinroof},
-  {showtime: DateTime.new(2018, 05, 20, 18, 30, 0), band: newguys, venue: avondale}
+  {showtime: DateTime.new(2018, 07, 01, 20, 00, 0), band: weeks, venue: avondale},
+  {showtime: DateTime.new(2018, 07, 11, 20, 00, 0), band: killers, venue: redrocks},
+  {showtime: DateTime.new(2018, 06, 21, 20, 00, 0), band: killers, venue: avondale},
+  {showtime: DateTime.new(2018, 07, 25, 22, 00, 0), band: avett, venue: redrocks},
+  {showtime: DateTime.new(2018, 06, 11, 20, 00, 0), band: avett, venue: avondale},
+  {showtime: DateTime.new(2018, 07, 13, 20, 00, 0), band: avett, venue: redrocks},
+  {showtime: DateTime.new(2018, 07, 29, 20, 00, 0), band: weeks, venue: redrocks},
+  {showtime: DateTime.new(2018, 07, 02, 21, 00, 0), band: trotline, venue: tinroof},
+  {showtime: DateTime.new(2018, 07, 20, 18, 30, 0), band: newguys, venue: avondale}
   ])

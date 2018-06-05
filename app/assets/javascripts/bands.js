@@ -4,13 +4,17 @@ $(function() {
     event.preventDefault()
     $("div.shows-list").html('')
     $.get(this.href, shows => {
-      // console.log(shows)
+      console.log(shows)
       shows.forEach( show => {
         let newShow = new Show(show)
         let showHtml = newShow.formatShows()
         $("div.shows-list").append(showHtml)
       })
     })
+  })
+
+  $(".js-next").on('click', function(event) {
+    $.get('')
   })
 })
 
