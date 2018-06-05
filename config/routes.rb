@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :bookings
   get "bookings/:id/booking_data", to: "bookings#booking_data"
+  get "bands/:id/next", to: "bands#next"
   
   resources :users, only: [:new, :create]
 
