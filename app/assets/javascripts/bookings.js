@@ -4,7 +4,7 @@ $(function() {
     event.preventDefault()
     //console.log(this.href)
     $.get(this.href, shows => {
-
+      console.log(shows)
       shows.forEach( show => {
         let newShow = new Show(show)
         let showHtml = newShow.formatShows()
