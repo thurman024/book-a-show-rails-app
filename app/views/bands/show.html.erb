@@ -15,7 +15,7 @@
 
 </div>
 
-<button class="js-next" data-id="<%= @band.id %>">See next</button>
+<button class="js-next" data-band-id="<%= @band.id %>" data-show-id="<%=@show.id%>">See next</button>
 <br>
 <h3><%= link_to "See all upcoming shows", band_bookings_path(@band) %></h3>
 

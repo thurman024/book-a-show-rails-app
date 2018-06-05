@@ -1,4 +1,3 @@
-require 'pry'
 class Booking < ApplicationRecord
   belongs_to :band
   belongs_to :venue
@@ -7,13 +6,17 @@ class Booking < ApplicationRecord
     order("showtime").where("showtime > ?", Time.current).limit(1)
   end
 
-  def self.next_button
-    binding.pry
-    show = Booking.order("showtime").where("id > ?", id).first
+  def self.sort_by_showtime
+    order("showtime")
+  end
+
+  def next_button
+    band = self.band
+    show = Booking.order("showtime").where("showtime > ? AND band_id = ?", self.showtime, band.id).first
     if show
       show
     else
-      Booking.order("showtime").first
+      Booking.order("showtime").where("band_id = ?", band.id).first
     end
   end
 
