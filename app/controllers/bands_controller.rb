@@ -20,12 +20,13 @@ class BandsController < ApplicationController
 
   def show
     @band = Band.find(params[:id])
-    next_show = @band.shows.next_show.first
+    @show = @band.shows.next_show.first
   end
 
   def next
     @band = Band.find(params[:id])
-    @next_show = @band.shows.next_button
+    @shows = @band.shows
+    
     render json: @next_show
     end
 

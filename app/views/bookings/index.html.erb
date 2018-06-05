@@ -5,13 +5,3 @@
   <p> <a href="/bookings/<%=show.id%>/booking_data" id="js-more">More Info</a> </p>
   <p> <%= link_to "Link to Show", booking_path(show) %></p><br><br>
 <% end %>
-
-<script type="text/javascript">
-  $(function () {
-    $('#js-more').on('click').function(event) {
-      event.preventDefault()
-      alert("you clicked the link")
-    }
-  })
-
-</script>

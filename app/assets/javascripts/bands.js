@@ -14,7 +14,11 @@ $(function() {
   })
 
   $(".js-next").on('click', function(event) {
-    $.get('')
+    let bandId = $(this).attr('data-id')
+    console.log(bandId)
+    $.get(`/bands/${bandId}/next`, nextShow => {
+      console.log(nextShow)
+    })
   })
 })
 
