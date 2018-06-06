@@ -1,6 +1,11 @@
 $(function () {
   $(".js-create").submit(function(e) {
     e.preventDefault()
-    console.log('submitted')
+    let values = $(this).serialize()
+    let posting = $.post('/bookings', values)
+
+    posting.done(function (data) {
+      
+    })
   })
 })

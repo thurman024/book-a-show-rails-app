@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   before_action :require_login
-  before_action :venue_owner?
-  skip_before_action :venue_owner?, only: [:index, :show]
+  # before_action :venue_owner?
+  # skip_before_action :venue_owner?, only: [:index, :show]
   before_action :set_booking, only: [:edit, :update, :destroy]
 
   def index
@@ -56,17 +56,17 @@ class BookingsController < ApplicationController
 
   def create
     # raise params.inspect
-    if current_user.venue.id == params["booking"][:venue_id].to_i
+    # if current_user.venue.id == params["booking"][:venue_id].to_i
       @booking = Booking.new(booking_params)
       if @booking.save
         redirect_to booking_path(@booking)
       else
         render :new
       end
-    else
-      flash[:message] = "You can only create bookings at your venue"
-      redirect_to new_booking_path
-    end
+    # else
+      # flash[:message] = "You can only create bookings at your venue"
+      # redirect_to new_booking_path
+    # end
   end
 
   def booking_data
