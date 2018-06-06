@@ -13,3 +13,23 @@
 
 <h4>Book a band at this venue</h4>
 <%= render partial: '/bookings/form' %>
+<%= form_for @booking do |f| %>
+  <% if params[:band_id] %>
+    <%= f.hidden_field :band_id %>
+  <% else %>
+    <%= f.label :band %>
+    <%= f.collection_select :band_id, Band.all, :id, :name %><br>
+  <% end %>
+
+  <% if params[:venue_id] %>
+    <%= f.hidden_field :venue_id %>
+  <% else %>
+    <%= f.label :venue %>
+    <%= f.collection_select :venue_id, Venue.all, :id, :name %><br>
+  <% end %>
+
+  <%= f.label :showtime %>
+  <%= f.datetime_select :showtime %><br>
+
+  <%= f.submit, class: "js-create" %>
+<% end %>
