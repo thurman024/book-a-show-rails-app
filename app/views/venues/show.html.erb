@@ -2,12 +2,14 @@
 
 <p><%= @venue.description %></p>
 
-<h3>Next Show:</h3>
-<% if @next_show.nil? %>
-  <p>There are currently no shows scheduled at this venue.</p>
-<% else %>
-  <p> <%= format_showtime(@next_show.showtime) %> - <%=@next_show.band.name %></p>
-
-  <h3> <%= link_to "See all upcoming shows", venue_bookings_path(@venue) %></h3>
+<h3>Scheduled shows:</h3>
+<% @venue.bookings.each do |show| %>
+  <% if show.id %>
+    <h4><%= link_to show.band.name, band_path(show.band) %> </h4>
+    <p> <%= format_showtime(show.showtime) %> </p>
+    <p> <%= link_to "Link to Show", booking_path(show) %></p><br>
+  <% end %>
 <% end %>
-<h4><%= link_to "Book a band at this venue", new_venue_booking_path(@venue) %></h4>
+
+<h4>Book a band at this venue</h4>
+<%= render partial: '/bookings/form' %>
