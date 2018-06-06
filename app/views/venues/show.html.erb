@@ -12,8 +12,8 @@
 <% end %>
 
 <h4>Book a band at this venue</h4>
-<%= render partial: '/bookings/form' %>
-<%= form_for @booking do |f| %>
+
+<%= form_for @booking, html: {class: "js-create"} do |f|  %>
   <% if params[:band_id] %>
     <%= f.hidden_field :band_id %>
   <% else %>
@@ -31,5 +31,5 @@
   <%= f.label :showtime %>
   <%= f.datetime_select :showtime %><br>
 
-  <%= f.submit, class: "js-create" %>
+  <%= f.submit 'Add Show'%>
 <% end %>
