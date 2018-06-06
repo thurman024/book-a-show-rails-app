@@ -59,7 +59,8 @@ class BookingsController < ApplicationController
     # if current_user.venue.id == params["booking"][:venue_id].to_i
       @booking = Booking.new(booking_params)
       if @booking.save
-        redirect_to booking_path(@booking)
+        # redirect_to booking_path(@booking)
+        render json: @booking
       else
         render :new
       end
@@ -69,11 +70,11 @@ class BookingsController < ApplicationController
     # end
   end
 
-  def booking_data
-    booking = Booking.find(params[:id])
-    render json: booking.to_json(only: [:showtime],
-                                  include: [:venue, :band])
-  end
+  # def booking_data
+  #   booking = Booking.find(params[:id])
+  #   render json: booking.to_json(only: [:showtime],
+  #                                 include: [:venue, :band])
+  # end
 
   def edit
 
