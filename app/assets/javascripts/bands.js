@@ -19,7 +19,11 @@ $(function() {
     // console.log(bandId)
     $.get(`/bands/${showId}/next`, show => {
       let nextShow = new Show(show)
+      let showHtml = nextShow.formatShows()
+      $(".display-show").html(showHtml)
+      $(".js-next").attr('data-show-id', nextShow.id)
     })
+
   })
 })
 
