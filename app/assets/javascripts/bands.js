@@ -16,7 +16,7 @@ $(function() {
   $(".js-next").on('click', function(event) {
     let bandId = $(this).attr('data-band-id')
     let showId = $(this).attr('data-show-id')
-    // console.log(bandId)
+    
     $.get(`/bands/${showId}/next`, show => {
       let nextShow = new Show(show)
       let showHtml = nextShow.formatShows()

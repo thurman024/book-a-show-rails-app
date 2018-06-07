@@ -26,7 +26,7 @@ class BandsController < ApplicationController
   def next
     current_show = Booking.find(params[:id])
     # @band = Band.find(params[:id])
-    # band = current_show.band
+  
     @next_show = current_show.next_button
     render json: @next_show
   end
