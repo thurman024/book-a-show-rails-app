@@ -16,7 +16,7 @@ $(function() {
   $(".js-next").on('click', function(event) {
     let bandId = $(this).attr('data-band-id')
     let showId = $(this).attr('data-show-id')
-    
+
     $.get(`/bands/${showId}/next`, show => {
       let nextShow = new Show(show)
       let showHtml = nextShow.formatShows()
@@ -38,9 +38,10 @@ function Show(attributes) {
 
 
 Show.prototype.formatShows = function () {
+  let showtime = formatTime(this.showtime)
   let showHtml = `
     <h4>${this.venueName}</h4>
-    <p><%=format_showtime(${this.showtime})%></p>
+    <p>${showtime}</p>
     <p><strong>About the Venue:</strong> ${this.venueDescription}</p>
     `
   return showHtml
