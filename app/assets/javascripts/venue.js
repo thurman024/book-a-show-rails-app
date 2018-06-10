@@ -25,24 +25,24 @@ Show.prototype.formatNewShow = function () {
 function formatTime(time) {
   let t = new Date(time)
   //return t.toLocaleString("%B %-d, %Y at %-I:%M%p");
-  var monthNames = [
+  let monthNames = [
     "January", "February", "March",
     "April", "May", "June", "July",
     "August", "September", "October",
     "November", "December"
   ];
 
-  var day = t.getDate();
-  var monthIndex = t.getMonth();
-  var year = t.getFullYear();
-  var hour = t.getHours()
-  var pm = null
-  
+  let day = t.getDate();
+  let monthIndex = t.getMonth();
+  let year = t.getFullYear();
+  let hour = t.getHours()
+  let pm = ''
+
   if (hour > 12) {
     hour -= 12;
-    var pm = ' PM'
+    let pm = ' PM'
   }
-  var minute = t.getMinutes()
+  let minute = t.getMinutes()
   if (minute === 0) {
     minute = '00'
   }
