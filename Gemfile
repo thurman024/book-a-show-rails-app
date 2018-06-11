@@ -37,7 +37,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Flash message to display errors
 gem 'rack-flash3'
-
+# CSS package
+gem 'materialize-sass'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -39,10 +39,10 @@ function Show(attributes) {
 
 Show.prototype.formatShows = function () {
   let showtime = formatTime(this.showtime)
-  let showHtml = `
+  let showHtml = `<div class="show-index">
     <h4>${this.venueName}</h4>
     <p>${showtime}</p>
     <p><strong>About the Venue:</strong> ${this.venueDescription}</p>
-    `
+    </div>`
   return showHtml
 };

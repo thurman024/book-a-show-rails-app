@@ -1,9 +1,12 @@
-<nav class="navbar">
-  <%= link_to "All Shows", bookings_path %>
-  <%= link_to "All Bands", bands_path %>
-  <%= link_to "All Venues", venues_path %>
-  <%= link_to "Book a Band", new_booking_path %>
-  <% if session[:user_id] %>
-    <%= link_to "Log Out", logout_path %>
-  <% end %>
+<nav class="navbar brown">
+  <ul>
+    <li><%= link_to "All Shows", bookings_path %></li>
+    <li><%= link_to "All Bands", bands_path %></li>
+    <li><%= link_to "All Venues", venues_path %></li>
+    <li><%= link_to "Book a Band", new_booking_path %></li>
+    <% if session[:user_id] %>
+      <li class="right"><%= link_to "Log Out", logout_path %></li>
+    <% end %>
+  </ul>
+
 </nav>

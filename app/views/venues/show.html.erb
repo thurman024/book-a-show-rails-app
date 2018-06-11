@@ -19,7 +19,7 @@
 
 <h4>Book a band at this venue</h4>
 
-<%= form_for @booking, html: {class: "js-create"} do |f|  %>
+<%= form_for @booking, html: {class: "js-create datetime"} do |f|  %>
   <% if params[:band_id] %>
     <%= f.hidden_field :band_id %>
   <% else %>
