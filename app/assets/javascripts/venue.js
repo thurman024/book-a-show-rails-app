@@ -24,7 +24,6 @@ Show.prototype.formatNewShow = function () {
 
 function formatTime(time) {
   let t = new Date(time)
-  //return t.toLocaleString("%B %-d, %Y at %-I:%M%p");
   let monthNames = [
     "January", "February", "March",
     "April", "May", "June", "July",
@@ -43,8 +42,8 @@ function formatTime(time) {
     let pm = ' PM'
   }
   let minute = t.getMinutes()
-  if (minute === 0) {
-    minute = '00'
+  if (minute < 0) {
+    minute = '0' + minute
   }
 
   return  monthNames[monthIndex] + ' ' + day + ', ' + year + ' at ' + hour + ':' + minute + pm;

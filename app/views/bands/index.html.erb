@@ -1,9 +1,9 @@
-<h1>Bands Index</h1>
+<h1>All Bands</h1>
 <div class="band-list col s4">
 
     <% @bands.each do |band| %>
-      <h5> <%= link_to band.name, band_path(band) %> - <%= show_count_message(band.shows) %></h5>
-      <a href="/bands/<%=band.id%>/bookings.json" class="js-all">See all shows</a>
+      <h5> <%= link_to band.name, band_path(band) %> </h5>
+      <a href="/bands/<%=band.id%>/bookings.json" class="js-all">> <%= show_count_message(band.shows) %></a>
       <br>
     <% end %>
 
@@ -11,5 +11,6 @@
 <div class="shows-list right col s8">
 
 </div>
-<br>
-<p><%= link_to "Add a Band", new_band_path %></p>
+<br><br>
+
+<h5><%= link_to "Add a Band", new_band_path %></h5>

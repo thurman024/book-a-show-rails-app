@@ -43,6 +43,7 @@ Show.prototype.formatShows = function () {
     <h4>${this.venueName}</h4>
     <p>${showtime}</p>
     <p><strong>About the Venue:</strong> ${this.venueDescription}</p>
-    </div>`
+    </div>
+    <div class="divider"></div>`
   return showHtml
 };

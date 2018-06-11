@@ -15,6 +15,7 @@
       <p> <%= format_showtime(@show.showtime) %> </p>
       <p><strong>About the Venue:</strong> <%=@show.venue.description%></p>
     </div>
+    <br>
     <button class="js-next" data-band-id="<%= @band.id %>" data-show-id="<%=@show.id%>">See next</button>
   <% end %>
 
@@ -22,6 +23,6 @@
 
 
 <br>
-<h3><%= link_to "See all upcoming shows", band_bookings_path(@band) %></h3>
+<h4><%= link_to "See all upcoming shows", band_bookings_path(@band) %></h4>
 
 <h4><%= link_to "Book this band", new_band_booking_path(@band) %></h4>
