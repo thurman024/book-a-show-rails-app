@@ -2,7 +2,7 @@ $(function () {
   $(".js-create").submit(function(e) {
     e.preventDefault()
     let values = $(this).serialize()
-    let posting = $.post('/bookings', values)
+    let posting = $.post('/bookings/json', values)
 
     posting.done(function (data) {
       let addedShow = new Show(data)

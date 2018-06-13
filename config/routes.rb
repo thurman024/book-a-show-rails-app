@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   resources :bookings
   get "bookings/:id/booking_data", to: "bookings#booking_data"
   get "bands/:id/next", to: "bands#next"
-  
+  post "/bookings/json", to: "bookings#create_json"
+
   resources :users, only: [:new, :create]
 
   get "login" => "sessions#new", as: "login"

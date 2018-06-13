@@ -71,8 +71,7 @@ class BookingsController < ApplicationController
   end
 
   def create_json
-    # raise params.inspect
-    # if current_user.venue.id == params["booking"][:venue_id].to_i
+    if venue_owner?
       @booking = Booking.new(booking_params)
       if @booking.save
         # redirect_to booking_path(@booking)
@@ -80,10 +79,10 @@ class BookingsController < ApplicationController
       else
         render :new
       end
-    # else
-      # flash[:message] = "You can only create bookings at your venue"
-      # redirect_to new_booking_path
-    # end
+    else
+      flash[:message] = "You can only create bookings at your venue"
+      render '/venues/show'
+    end
   end
 
   # def booking_data
