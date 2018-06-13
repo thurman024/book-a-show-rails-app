@@ -8,7 +8,7 @@
   <%= f.password_field :password %><br>
 
   <%= f.label :venue_id, "Select a venue if you are an owner" %>
-  <%= f.collection_select :venue_id, Venue.all, :id, :name, include_blank: true %><br>
+  <%= f.collection_select :venue_id, Venue.all, :id, :name, include_blank: true, html: {class: "js-create datetime"} %><br>
 
   <%= f.submit "Create User" %>
 

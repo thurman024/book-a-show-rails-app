@@ -51,10 +51,26 @@ class BookingsController < ApplicationController
   end
 
   def new
+    # if venue, venue_owner?
     @booking = Booking.new(band_id: params[:band_id], venue_id: params[:venue_id])
   end
 
   def create
+    # raise params.inspect
+    if venue_owner?
+      @booking = Booking.new(booking_params)
+      if @booking.save
+        redirect_to booking_path(@booking)
+      else
+        render :new
+      end
+    else
+      flash[:message] = "You must be registered as the venue owner to perform this action"
+      redirect_to new_booking_path
+    end
+  end
+
+  def create_json
     # raise params.inspect
     # if current_user.venue.id == params["booking"][:venue_id].to_i
       @booking = Booking.new(booking_params)
