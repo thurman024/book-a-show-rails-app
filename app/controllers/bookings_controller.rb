@@ -1,7 +1,5 @@
 class BookingsController < ApplicationController
   before_action :require_login
-  # before_action :venue_owner?
-  # skip_before_action :venue_owner?, only: [:index, :show]
   before_action :set_booking, only: [:edit, :update, :destroy]
 
   def index
@@ -56,7 +54,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    # raise params.inspect
     if venue_owner?
       @booking = Booking.new(booking_params)
       if @booking.save
@@ -74,7 +71,6 @@ class BookingsController < ApplicationController
     if venue_owner?
       @booking = Booking.new(booking_params)
       if @booking.save
-        # redirect_to booking_path(@booking)
         render json: @booking
       else
         render :new
@@ -84,12 +80,6 @@ class BookingsController < ApplicationController
       render '/venues/show'
     end
   end
-
-  # def booking_data
-  #   booking = Booking.find(params[:id])
-  #   render json: booking.to_json(only: [:showtime],
-  #                                 include: [:venue, :band])
-  # end
 
   def edit
 
