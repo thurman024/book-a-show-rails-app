@@ -2,15 +2,19 @@ $(function () {
   $(".js-create").submit(function(e) {
     e.preventDefault()
     let values = $(this).serialize()
-    let posting = $.post('/bookings/json', values)
-
-    posting.done(function (data) {
-      let addedShow = new Show(data)
-      let showHtml = addedShow.formatNewShow()
-      $('div.added-booking').html(showHtml)
-    })
+    createNewShow(values)
   })
 })
+
+function createNewShow(values) {
+  let posting = $.post('/bookings/json', values)
+
+  posting.done(function (data) {
+    let addedShow = new Show(data)
+    let showHtml = addedShow.formatNewShow()
+    $('div.added-booking').html(showHtml)
+  })
+}
 
 Show.prototype.formatNewShow = function () {
   let showtime = formatTime(this.showtime)
