@@ -14,6 +14,7 @@
       <h4><%=@show.venue.name%></h4>
       <p> <%= format_showtime(@show.showtime) %> </p>
       <p><strong>About the Venue:</strong> <%=@show.venue.description%></p>
+      <div class="divider"></div>
     </div>
     <br>
     <button class="js-next" data-band-id="<%= @band.id %>" data-show-id="<%=@show.id%>">See next</button>
