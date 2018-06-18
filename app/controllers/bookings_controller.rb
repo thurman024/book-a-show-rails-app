@@ -91,9 +91,14 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking.delete
-    flash[:message] = "Booking successfully deleted."
-    redirect_to bookings_path
+    if venue_owner?
+      @booking.delete
+      flash[:message] = "Booking successfully deleted."
+      redirect_to bookings_path
+    else
+      flash[:message] = "You can only cancel bookings at your venue"
+      redirect_to booking_path(@booking)
+    end
   end
 
   private
