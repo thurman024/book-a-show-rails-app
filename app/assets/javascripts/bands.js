@@ -3,7 +3,7 @@ $(function() {
     //alert("you clicked the link")
     event.preventDefault()
     $("div.shows-list").html('')
-    showsIndexRender(this.href)
+    renderShowsIndex(this.href)
   })
 
   $(".js-next").on('click', function(event) {
@@ -13,7 +13,7 @@ $(function() {
   })
 })
 
-function showsIndexRender(route) {
+function renderShowsIndex(route) {
   $.get(route, shows => {
     shows.forEach( show => {
       let newShow = new Show(show)
