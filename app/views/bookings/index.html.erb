@@ -2,6 +2,8 @@
 
 <% @bookings.each do |show| %>
   <p><%= link_to show.band.name, band_path(show.band) %> at <%= link_to show.venue.name, venue_path(show.venue) %> </p>
-  <p> <a href="/bookings/<%=show.id%>/booking_data" id="js-more">More Info</a> </p>
-  <p> <%= link_to "Link to Show", booking_path(show) %></p><br><br>
+  <p><%= link_to format_showtime(show.showtime), booking_path(show) %></p><br>
+  <div class="divider">
+
+  </div>
 <% end %>
