@@ -3,29 +3,34 @@ $(function() {
     //alert("you clicked the link")
     event.preventDefault()
     $("div.shows-list").html('')
-    $.get(this.href, shows => {
-      console.log(shows)
-      shows.forEach( show => {
-        let newShow = new Show(show)
-        let showHtml = newShow.formatShows()
-        $("div.shows-list").append(showHtml)
-      })
-    })
+    showsIndexRender(this.href)
   })
 
   $(".js-next").on('click', function(event) {
     let bandId = $(this).attr('data-band-id')
     let showId = $(this).attr('data-show-id')
-
-    $.get(`/bands/${showId}/next`, show => {
-      let nextShow = new Show(show)
-      let showHtml = nextShow.formatShows()
-      $(".display-show").html(showHtml)
-      $(".js-next").attr('data-show-id', nextShow.id)
-    })
-
+    renderNextShow(showId)
   })
 })
+
+function showsIndexRender(route) {
+  $.get(route, shows => {
+    shows.forEach( show => {
+      let newShow = new Show(show)
+      let showHtml = newShow.formatShows()
+      $("div.shows-list").append(showHtml)
+    })
+  })
+}
+
+function renderNextShow(showId) {
+  $.get(`/bands/${showId}/next`, show => {
+    let nextShow = new Show(show)
+    let showHtml = nextShow.formatShows()
+    $(".display-show").html(showHtml)
+    $(".js-next").attr('data-show-id', nextShow.id)
+  })
+}
 
 function Show(attributes) {
   this.id = attributes.id
