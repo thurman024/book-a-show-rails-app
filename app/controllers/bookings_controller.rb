@@ -77,7 +77,7 @@ class BookingsController < ApplicationController
       end
     else
       flash[:message] = "You can only create bookings at your venue"
-      render '/venues/show'
+      redirect_to new_booking_path
     end
   end
 
