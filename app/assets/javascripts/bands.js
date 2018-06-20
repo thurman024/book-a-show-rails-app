@@ -15,8 +15,16 @@ $(function() {
 
 function renderShowsIndex(route) {
   $.get(route, shows => {
+    // console.log(shows)
+    shows.sort( (a, b) => {
+      // debugger
+      return a.showtime < b.showtime ? -1 : 1;
+    })
+    console.log(sortedShows)
     shows.forEach( show => {
       let newShow = new Show(show)
+
+
       let showHtml = newShow.formatShows()
       $("div.shows-list").append(showHtml)
     })
